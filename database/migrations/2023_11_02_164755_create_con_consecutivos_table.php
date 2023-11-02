@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('con_consecutivos', function (Blueprint $table) {
             $table->id();
             $table->integer("CON_CONSECUTIVO");
-            $table->string("CON_ID_PROCESO");
-            $table->string("CON_ID_TIPO");
+            $table->unsignedBigInteger("CON_ID_PROCESO");
+            $table->unsignedBigInteger("CON_ID_TIPO");
+            $table->foreign("CON_ID_PROCESO")->references("id")->on("pro_procesos")->onDelete("cascade");
+            $table->foreign("CON_ID_TIPO")->references("id")->on("tip_tipo_docs")->onDelete("cascade");
             $table->timestamps();
         });
     }

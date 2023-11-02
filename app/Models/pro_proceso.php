@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class pro_proceso extends Model
 {
     use HasFactory;
+
+    public $table = "pro_procesos";
+    protected $fillable = array("*");
+
+    
 }

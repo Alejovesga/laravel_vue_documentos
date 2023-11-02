@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string("DOC_NOMBRE");
             $table->int("DOC_CODIGO");
             $table->text("DOC_CONTENIDO");
-            $table->integer("DOC_ID_TIPO");
-            $table->integer("DOC_ID_PROCESO");
+            $table->unsignedBigInteger("DOC_ID_TIPO");
+            $table->unsignedBigInteger("DOC_ID_PROCESO");
+            $table->foreign("DOC_ID_TIPO")->references("id")->on("tip_tipo_docs")->onDelete("cascade");
+            $table->foreign("DOC_ID_PROCESO")->references("id")->on("pro_procesos")->onDelete("cascade");
             $table->timestamps();
         });
     }
