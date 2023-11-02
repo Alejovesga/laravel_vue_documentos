@@ -56,7 +56,15 @@ class TiposController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tipo = tip_tipo_doc::find($id);
+        if(isset($tipo->id)){
+            return $tipo;
+        }else{
+            return response()->json([
+                "error" => true,
+                "message" => "No se encontró el tipo de documento"
+            ]);
+        }
     }
 
     /**

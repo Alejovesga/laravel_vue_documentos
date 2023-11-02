@@ -10,7 +10,13 @@ class doc_documento extends Model
     use HasFactory;
 
     public $table = "doc_documentos";
-    protected $fillable = array("*");
+    protected $fillable = [
+        "DOC_NOMBRE",
+        "DOC_CODIGO",
+        "DOC_CONTENIDO",
+        "DOC_ID_TIPO",
+        "DOC_ID_PROCESO",
+    ];
 
      public function pro_proceso()
     {

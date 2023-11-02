@@ -57,7 +57,15 @@ class ProcesosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $proceso = pro_proceso::find($id);
+        if(isset($proceso->id)){
+            return $proceso;
+        }else{
+            return response()->json([
+                "error" => true,
+                "message" => "No se encontró el tipo de documento"
+            ]);
+        }
     }
 
     /**
