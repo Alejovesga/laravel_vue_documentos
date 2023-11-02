@@ -78,7 +78,28 @@ class DocumentosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $inputs = $request->input();
+        $documento = doc_documento::find($id);
+
+        if(($documento->DOC_ID_TIPO != $request->DOC_ID_TIPO) && ($documento->DOC_ID_PROCESO != $request->DOC_ID_PROCESO)){
+            $codigo = $this->makeCode($request);
+            $inputs['DOC_CODIGO'] = $codigo;
+        }
+        
+        if(isset($documento->id)){
+            if($documento->update($inputs)){
+                return response()->json([
+                        "error" => false,
+                        "message" => "Documento actualizado correctamente"
+                    ]);
+            }
+        }else{
+            return response()->json([
+                "error" => true,
+                "message" => "No se pudo actualizar el documento"
+            ]);
+        }
+
     }
 
     /**
