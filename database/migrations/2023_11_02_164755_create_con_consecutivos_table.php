@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('con_consecutivos', function (Blueprint $table) {
             $table->id();
-            $table->int("CON_CONSECUTIVO");
+            $table->integer("CON_CONSECUTIVO");
             $table->string("CON_ID_PROCESO");
             $table->string("CON_ID_TIPO");
             $table->timestamps();

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string("DOC_NOMBRE");
             $table->int("DOC_CODIGO");
             $table->text("DOC_CONTENIDO");
-            $table->int("DOC_ID_TIPO");
-            $table->int("DOC_ID_PROCESO");
+            $table->integer("DOC_ID_TIPO");
+            $table->integer("DOC_ID_PROCESO");
             $table->timestamps();
         });
     }
