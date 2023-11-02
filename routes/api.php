@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DocumentosController;
+use App\Http\Controllers\TiposController;
+use App\Http\Controllers\ProcesosController;
+use App\Http\Controllers\ConsecutivosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resources([
+        'documentos' => DocumentosController::class,
+        'tipos' => TiposController::class,
+        'procesos' => ProcesosController::class,
+        'consecutivos' => ConsecutivosController::class
+    ]);
+
+
+
+

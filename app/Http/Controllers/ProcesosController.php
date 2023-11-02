@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\pro_proceso;
 
 class ProcesosController extends Controller
 {
@@ -11,7 +12,15 @@ class ProcesosController extends Controller
      */
     public function index()
     {
-        //
+        $response = pro_proceso::all();
+        if(isset($response)){
+            return $response;
+        }else{
+            return response()->json([
+                "error" => true,
+                "message" => "No se encontraron procesos"
+            ]);
+        }
     }
 
     /**
@@ -27,7 +36,20 @@ class ProcesosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->input();
+        $response = pro_proceso::create($inputs);
+        if(isset($response)){
+            return response()->json([
+                "error" => false,
+                "message" => "Proceso creado correctamente"
+            ]);
+        }else{
+            return response()->json([
+                "error" => true,
+                "message" => "No se pudo crear el proceso"
+            ]);
+        }
+
     }
 
     /**
@@ -51,7 +73,21 @@ class ProcesosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $proceso = pro_proceso::find($id);
+        if(isset($proceso->id)){
+            if($proceso->update($request->all())){
+                return response()->json([
+                    "error" => false,
+                    "message" => "Proceso actualizado correctamente"
+                ]);
+            }
+
+        }else{
+            return response()->json([
+                "error" => true,
+                "message" => "No se encontró el proceso"
+            ]);
+        }
     }
 
     /**
