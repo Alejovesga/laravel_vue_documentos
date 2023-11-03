@@ -62,7 +62,15 @@ class DocumentosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $response = doc_documento::find($id);
+        if(isset($response)){
+            return $response;
+        }else{
+            return response()->json([
+                "error" => true,
+                "message" => "No se encontró el documento"
+            ]);
+        }
     }
 
     /**
