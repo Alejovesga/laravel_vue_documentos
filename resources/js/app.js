@@ -7,6 +7,11 @@
 import './bootstrap';
 import { createApp } from 'vue';
 
+import App from './App.vue';
+import axios from 'axios';
+import router from './router';
+import DocumentsComponent from './components/Documents/DocumentsComponent.vue'
+
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -14,10 +19,11 @@ import { createApp } from 'vue';
  */
 
 const app = createApp({});
+app.config.globalProperties.$axios = axios;
+app.use(router);
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
-
+app.component('documents-component', DocumentsComponent);
+app.component('app', App);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

@@ -85,7 +85,7 @@ class DocumentosController extends Controller
             $codigo = $this->makeCode($request);
             $inputs['DOC_CODIGO'] = $codigo;
         }
-        
+
         if(isset($documento->id)){
             if($documento->update($inputs)){
                 return response()->json([
@@ -107,7 +107,7 @@ class DocumentosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return doc_documento::destroy($id);
     }
 
     private function makeCode(Request $request){

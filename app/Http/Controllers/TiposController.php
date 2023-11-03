@@ -13,7 +13,7 @@ class TiposController extends Controller
     public function index()
     {
         $response = tip_tipo_doc::all();
-        if($isset($response)){
+        if(isset($response)){
             return $response;
         }else{
             return response()->json([
