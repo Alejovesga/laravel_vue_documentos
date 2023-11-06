@@ -3,7 +3,7 @@
         <h4>Nuevo documento</h4>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md">
             <form @submit.prevent="addDocument">
                 <div class="form-group">
                     <label>Nombre</label>
