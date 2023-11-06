@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this.call([
+        $this->call([
             TipoSeeder::class,
             ProcesoSeeder::class,
             UserSeeder::class,

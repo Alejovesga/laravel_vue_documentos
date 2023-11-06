@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProcesoSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class ProcesoSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('pro_procesos')->insert(
+        DB::table('pro_procesos')->insert([
             [
                 'PRO_NOMBRE' => 'INSTALACION',
                 'PRO_PREFIJO' => 'INS',
@@ -37,6 +38,6 @@ class ProcesoSeeder extends Seeder
                 'PRO_NOMBRE' => 'CONTABLE',
                 'PRO_PREFIJO' => 'CTBL',
             ],
-        );
+        ]);
     }
 }

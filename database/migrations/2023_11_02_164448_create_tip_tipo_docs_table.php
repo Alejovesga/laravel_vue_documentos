@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tip_tipo_docs', function (Blueprint $table) {
             $table->id();
-            $table->string("TIP_NOMBRE",20);
-            $table->string("TIP_PREFIJO", 60);
+            $table->string("TIP_NOMBRE",60);
+            $table->string("TIP_PREFIJO", 20);
             $table->timestamps();
         });
     }
