@@ -58,6 +58,14 @@ Se comprueba que se haya instalado tambien npm y si no es asi
 
     sudo apt install npm
 
+Se crea archivo .env basandose en el .env.example
+
+    cp .env.example .env
+
+Se crea llave de encriptación de la aplicación
+
+    php artisan key:generate
+
 para correr el proyecto digitamos desde el directorio raiz del proyecto el comando
 
     composer install
@@ -74,7 +82,7 @@ y en otra consola
 
     npm run dev
 
-con esto el proyecto estara corriendo en http://127.0.0.1:8000/
+con esto el proyecto estará corriendo en http://127.0.0.1:8000/
 
 para conectar a la base de datos reemplazar lo siguiente en el archivo .env
 
@@ -84,6 +92,13 @@ para conectar a la base de datos reemplazar lo siguiente en el archivo .env
     DB_DATABASE=prueba-innclod
     DB_USERNAME=fl0user
     DB_PASSWORD=LpvyXoE7x0la
+
+Para despliegue en windows
+
+Instalar composer desde la pagina oficial https://getcomposer.org/download/
+Instalar nodejs desde la pagina oficial https://nodejs.org/en
+
+Seguir los comandos en la linea de comandos de windows.
 
 
 
