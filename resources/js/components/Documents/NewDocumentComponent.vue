@@ -11,7 +11,7 @@
                 </div>
                 <div class="form-group">
                     <label>Contenido</label>
-                    <textarea type="text" class="form-control" v-model="documento.DOC_CONTENIDO"></textarea>
+                    <textarea type="text" class="form-control" rows="20" v-model="documento.DOC_CONTENIDO"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Tipo</label>
