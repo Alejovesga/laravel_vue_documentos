@@ -118,6 +118,7 @@ class DocumentosController extends Controller
         return doc_documento::destroy($id);
     }
 
+    //Funcion que recibe el tipo y el proceso de la request y generla el codigo unico de identeificación de documento
     private function makeCode(Request $request){
         $prefijoProceso = pro_proceso::find($request->input('DOC_ID_PROCESO'))->PRO_PREFIJO;
         $prefijoTipo = tip_tipo_doc::find($request->input('DOC_ID_TIPO'))->TIP_PREFIJO;
