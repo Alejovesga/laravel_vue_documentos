@@ -120,5 +120,8 @@ Instalar nodejs desde la pagina oficial https://nodejs.org/en
 Seguir los comandos en la linea de comandos de windows.
 
 
+Con los pasos anteriores ya se tendria el proyecto corriendo en un servidor local de desarrollo, se añade la base de datos online en caso de no tener una base de datos local instalada, se recomienda probar con una base de datos local para mayor fluidez a la hora de hacer peticiones
+
+
 
 
