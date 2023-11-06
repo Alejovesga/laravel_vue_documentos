@@ -1,66 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+CRUD de documentos con Laravel y Vuejs
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Usuario: innclod@innclod.com
+Contraseña: !ivsBywN6d!fTXR
 
-## About Laravel
+Para el desarrollo de la aplicación se utilizo composer y nodejs
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Versiones de librerias de PHP en el archivo composer.json, versiones de librerias de nodejs en el archivo package.json
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para el backend se utilizo una base de datos postgresql desplegada en linea en www.fl0.com que es un servicio gratiuto que permite desplegar bases de datos y algunas aplicaciones backend por lo cual las peticiones a dicha base de datos pueden tardar un poco, en la base de datos se dejaron 5 tipos de documento y 5 procesos.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+El desarrollo de la aplicación se hizo en linux para lo cual se explicaran los pasos para el uso de la misma en este sistema operativo
 
-## Learning Laravel
+Primero se debe instalar Composer en el sistema, para este ejercicio se utilizó la ultima versión disponible:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Dentro del directorio raiz del proyecto y desde la consola ejecutamos el comando
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    sudo apt install software-properties-common
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Lo cual instalara dependencias faltantes en caso de que estas no estén el nuestro sistema Ubuntu
 
-## Laravel Sponsors
+Se agrega el repositorio de php 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    sudo apt install software-properties-common
 
-### Premium Partners
+Lo que permite tener todas las versiones de php disponibles para instalación
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Se actualiza la lista de repositorios actuales
 
-## Contributing
+    sudo apt update && sudo apt upgrade
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Se instala la ultima versión de php 
 
-## Code of Conduct
+    sudo apt update && sudo apt upgrade
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Instalamos composer como se explica en la documentación oficial
+https://getcomposer.org/download/
+para lo cual se copian los siguientes comandos en la consola
 
-## Security Vulnerabilities
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+la documentación nos recomienda mover el archivo de instalación al directorio /usr/local/bin
 
-## License
+    sudo mv composer.phar /usr/local/bin/composer
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+con lo anterior ya tendriamos composer en nuestro sistema operativo
+
+Instalación de nodejs
+
+Para instalar nodejs en el sistema operativo se corre el comando
+
+    sudo apt install nodejs
+
+Se comprueba que se haya instalado tambien npm y si no es asi 
+
+    sudo apt install npm
+
+para correr el proyecto digitamos desde el directorio raiz del proyecto el comando
+
+    composer install
+
+y tambien instalamos las dependencias de node
+
+    npm install
+
+una vez instaladas todas las dependencias iniciamos el servidor de desarrollo digitando en una consola
+
+    php artisan serve
+
+y en otra consola
+
+    npm run dev
+
+con esto el proyecto estara corriendo en http://127.0.0.1:8000/
+
+para conectar a la base de datos reemplazar lo siguiente en el archivo .env
+
+    DB_CONNECTION=pgsql
+    DB_HOST=ep-divine-mud-25635527.us-east-2.aws.neon.fl0.io
+    DB_PORT=5432
+    DB_DATABASE=prueba-innclod
+    DB_USERNAME=fl0user
+    DB_PASSWORD=LpvyXoE7x0la
+
+
+
+
