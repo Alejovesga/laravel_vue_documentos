@@ -93,6 +93,16 @@ Para conectar a base de datos local se deben reemplazar los parametros de conexi
     DB_USERNAME= #usuario de base de datos
     DB_PASSWORD= #contraseña de base de datos
 
+Para creacion de tablas y datos de prueba
+
+correr las migraciones con el comando
+
+    php artisan migrate
+
+correr los seeders con el comando
+
+    php artisan db:seed
+
 para conectar a la base de datos en linea reemplazar lo siguiente en el archivo .env
 
     DB_CONNECTION=pgsql
