@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('doc_documentos', function (Blueprint $table) {
             $table->id();
-            $table->string("DOC_NOMBRE");
+            $table->string("DOC_NOMBRE", 60);
             $table->string("DOC_CODIGO");
-            $table->text("DOC_CONTENIDO");
+            $table->text("DOC_CONTENIDO", 4000);
             $table->unsignedBigInteger("DOC_ID_TIPO");
             $table->unsignedBigInteger("DOC_ID_PROCESO");
             $table->foreign("DOC_ID_TIPO")->references("id")->on("tip_tipo_docs")->onDelete("cascade");
