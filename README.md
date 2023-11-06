@@ -7,7 +7,7 @@ Para el desarrollo de la aplicación se utilizo composer y nodejs
 
 Versiones de librerias de PHP en el archivo composer.json, versiones de librerias de nodejs en el archivo package.json
 
-Para el backend se utilizo una base de datos postgresql desplegada en linea en www.fl0.com que es un servicio gratiuto que permite desplegar bases de datos y algunas aplicaciones backend por lo cual las peticiones a dicha base de datos pueden tardar un poco, en la base de datos se dejaron 5 tipos de documento y 5 procesos.
+Para el backend se utilizo una base de datos postgresql desplegada en linea en www.fl0.com que es un servicio gratiuto que permite desplegar bases de datos y algunas aplicaciones backend por lo cual las peticiones a dicha base de datos pueden tardar un poco, en la base de datos se dejaron 5 tipos de documento y 5 procesos, en una base de datos local los tiempos de respuesta son mucho más rapidos.
 
 El desarrollo de la aplicación se hizo en linux para lo cual se explicaran los pasos para el uso de la misma en este sistema operativo
 
@@ -84,7 +84,16 @@ y en otra consola
 
 con esto el proyecto estará corriendo en http://127.0.0.1:8000/
 
-para conectar a la base de datos reemplazar lo siguiente en el archivo .env
+Para conectar a base de datos local se deben reemplazar los parametros de conexion en el archivo .env
+
+    DB_CONNECTION= #controlador de base de datos utilizada, de preferencia MySQL
+    DB_HOST=direccion ip de la base de datos #en nuestro caso localhost
+    DB_PORT= #puerto 3336 en servidores mysql
+    DB_DATABASE= #nombre de base de datos
+    DB_USERNAME= #usuario de base de datos
+    DB_PASSWORD= #contraseña de base de datos
+
+para conectar a la base de datos en linea reemplazar lo siguiente en el archivo .env
 
     DB_CONNECTION=pgsql
     DB_HOST=ep-divine-mud-25635527.us-east-2.aws.neon.fl0.io
